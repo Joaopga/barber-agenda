@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usuários - Sistema de Gestão</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dashboard-page">
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <div class="header-left">
+        <div class="logo">
+        </div>
+        <h1>Gestão de Usuários</h1>
+      </div>
+      <div class="header-right">
+        <span class="user-name" id="currentUser">Admin</span>
+        <button class="btn-logout" id="logoutBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+            <polyline points="16 17 21 12 16 7"/>
+            <line x1="21" x2="9" y1="12" y2="12"/>
+          </svg>
+          Sair
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Stats Cards -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon total">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <div class="stat-info">
+          <span class="stat-value" id="totalUsers">0</span>
+          <span class="stat-label">Total de Usuários</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon admin">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+          </svg>
+        </div>
+        <div class="stat-info">
+          <span class="stat-value" id="totalAdmins">0</span>
+          <span class="stat-label">Administradores</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon employee">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="14" x="2" y="7" rx="2" ry="2"/>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+          </svg>
+        </div>
+        <div class="stat-info">
+          <span class="stat-value" id="totalEmployees">0</span>
+          <span class="stat-label">Funcionários</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon user">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </div>
+        <div class="stat-info">
+          <span class="stat-value" id="totalRegularUsers">0</span>
+          <span class="stat-label">Usuários</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Users Table Section -->
+    <div class="table-section">
+      <div class="table-header">
+        <div class="search-wrapper">
+          <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.3-4.3"/>
+          </svg>
+          <input type="text" id="searchInput" placeholder="Buscar usuários..." class="search-input">
+        </div>
+        <button class="btn-primary" id="addUserBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <line x1="19" x2="19" y1="8" y2="14"/>
+            <line x1="22" x2="16" y1="11" y2="11"/>
+          </svg>
+          Adicionar Usuário
+        </button>
+      </div>
+
+      <div class="table-container">
+        <table class="users-table">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Email</th>
+              <th>Usuário</th>
+              <th>Função</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="usersTableBody">
+            <!-- Users will be inserted here dynamically -->
+          </tbody>
+        </table>
+
+        <div class="empty-state hidden" id="emptyState">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          <h3>Nenhum usuário encontrado</h3>
+          <p>Comece adicionando um novo usuário ao sistema.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- User Modal (Create/Edit) -->
+  <div class="modal-overlay hidden" id="userModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modalTitle">Adicionar Usuário</h2>
+        <button class="modal-close" id="closeUserModal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18"/>
+            <path d="m6 6 12 12"/>
+          </svg>
+        </button>
+      </div>
+      
+      <form id="userForm" class="modal-form">
+        <input type="hidden" id="userId">
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">Nome <span class="required">*</span></label>
+            <input type="text" id="firstName" name="firstName" placeholder="Digite o nome" required>
+            <span class="error-message" id="firstNameError"></span>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Sobrenome <span class="required">*</span></label>
+            <input type="text" id="lastName" name="lastName" placeholder="Digite o sobrenome" required>
+            <span class="error-message" id="lastNameError"></span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email <span class="required">*</span></label>
+            <input type="email" id="email" name="email" placeholder="email@exemplo.com" required>
+            <span class="error-message" id="emailError"></span>
+          </div>
+          <div class="form-group">
+            <label for="role">Função <span class="required">*</span></label>
+            <select id="role" name="role" required>
+              <option value="">Selecione uma função</option>
+              <option value="Admin">Admin</option>
+              <option value="Funcionario">Funcionário</option>
+              <option value="Usuario">Usuário</option>
+            </select>
+            <span class="error-message" id="roleError"></span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="userUsername">Nome de Usuário <span class="required">*</span></label>
+            <input type="text" id="userUsername" name="username" placeholder="Digite o nome de usuário" required>
+            <span class="error-message" id="userUsernameError"></span>
+          </div>
+          <div class="form-group">
+            <label for="userPassword">Senha <span class="required" id="passwordRequired">*</span></label>
+            <input type="password" id="userPassword" name="password" placeholder="Digite a senha">
+            <span class="error-message" id="userPasswordError"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="observations">Observações</label>
+          <textarea id="observations" name="observations" placeholder="Digite observações sobre o usuário (opcional)" rows="3"></textarea>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" id="cancelUserModal">Cancelar</button>
+          <button type="submit" class="btn-primary" id="saveUserBtn">
+            <span class="btn-text">Salvar</span>
+            <span class="btn-loading hidden">
+              <svg class="spinner" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+              </svg>
+              Salvando...
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div class="modal-overlay hidden" id="deleteModal">
+    <div class="modal modal-small">
+      <div class="modal-header">
+        <h2>Excluir Usuário</h2>
+        <button class="modal-close" id="closeDeleteModal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18"/>
+            <path d="m6 6 12 12"/>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="delete-warning">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
+            <path d="M12 9v4"/>
+            <path d="M12 17h.01"/>
+          </svg>
+        </div>
+        <p>Tem certeza que deseja excluir o usuário <strong id="deleteUserName"></strong>?</p>
+        <p class="warning-text">Esta ação não pode ser desfeita.</p>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn-secondary" id="cancelDeleteModal">Cancelar</button>
+        <button type="button" class="btn-danger" id="confirmDeleteBtn">
+          <span class="btn-text">Excluir</span>
+          <span class="btn-loading hidden">
+            <svg class="spinner" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+            </svg>
+            Excluindo...
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast hidden" id="toast">
+    <div class="toast-content">
+      <svg class="toast-icon success" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+        <path d="m9 11 3 3L22 4"/>
+      </svg>
+      <svg class="toast-icon error hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="m15 9-6 6"/>
+        <path d="m9 9 6 6"/>
+      </svg>
+      <span class="toast-message" id="toastMessage"></span>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/uList.js"></script>
+</body>
+</html>
