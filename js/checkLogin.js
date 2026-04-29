@@ -1,22 +1,15 @@
-export async function checkLogin() {
-  // Check if user is logged in
+export function checkLogin() {
   const currentUser = localStorage.getItem('currentUser');
+
   if (!currentUser) {
     window.location.href = 'index.html';
-    return;
+    return null;
   }
-  
-  // Set current user name
-  const userInfo = JSON.parse(currentUser);
-  document.getElementById('currentUser').textContent = userInfo.username;
-  
-  // Load users from localStorage or use sample data
-  loadUsers();
-  
-  // Initialize event listeners
-  initUserPageListeners();
-  
-  // Render initial data
-  renderUsers();
-  updateStats();
+
+  return JSON.parse(currentUser);
+}
+
+export function logout() {
+  localStorage.removeItem('currentUser');
+  window.location.href = 'index.html';
 }
