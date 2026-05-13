@@ -5,7 +5,6 @@
   padding: 2rem 1.5rem;
 }
 
-
 /* Table Section */
 .table-c-section {
   background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
@@ -40,16 +39,16 @@
 }
 
 .calendar-table th {
-  padding: 0.5rem 0 5rem 1rem;
-  border: 1px solid var(--border);
+  padding: 0.5rem 0 4.9rem 1rem;
+  border: 2px solid var(--border);
   text-align: left;
 }
 
 .calendar-table th {
   background: var(--muted);
-  font-size: 1.05rem;
-  font-weight: 500;
-  text-transform: uppercase;
+  font-size: 1.1rem;
+  font-weight: 600;
+
   letter-spacing: 0.05em;
   color: var(--foreground);
 }
@@ -67,22 +66,31 @@
   background: var(--muted);
 }
 
+/* CARDS  */
 
-/*  Cards   */
+.ocup-card {
+  position: absolute;
+  width: 8%;
+  background-color: var(--openCard);
 
-.c-card {
-    position: absolute;
-    padding-top: 1%;
-    font-size: 0.8rem;
+  border: 1px solid var(--card-foreground);
+  border-radius: 7%;
+
+  align-items: center;
+
+  font-size: 0.72em;
+  color: var(--input);
+  font-weight: 100;
 }
 
-.c-Acard {
-    position: absolute;
-    font-size: 0.8rem;
-}
+.avai-card {
+  position: absolute;
+  width: 1%;
+  height: 2%;
+  background-color: var(--success);
 
-.c-Bcard {
-    position: absolute;
-    padding-top: 2%;
-    font-size: 0.8rem;
+  border: 1px solid var(--calendarbg);
+  border-radius: 100%;
+
+  margin-left: 1.2%;
 }
