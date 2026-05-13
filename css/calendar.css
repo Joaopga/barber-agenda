@@ -1,6 +1,6 @@
 /* Main Content */
 .main-c-content {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 2rem 1.5rem;
 }
@@ -68,29 +68,59 @@
 
 /* CARDS  */
 
+.morning-card,
+.ocup-card,
+.aftern-card,
+.dayoff-card {
+  position: absolute;
+  margin: 0.3% 0;
+
+  padding: 0.1% 0.5% 0.1% 0.5%;
+  border: 1px solid;
+
+  text-align: center;
+
+  font-size: 0.75em;
+  font-weight: 500;
+
+  border-radius: 9px;
+}
+
+.aftern-card {
+  border-color: #9a5a1f3f;
+
+  margin-top: 2%;
+
+  background-color: #ffe2c1;
+  color: #9a5b1f;
+}
+
+.morning-card {
+  border-color: #3b5b8f3f;
+
+  background-color: #b0d1fc;
+  color: #3b5b8a;
+}
+
 .ocup-card {
-  position: absolute;
-  width: 8%;
-  background-color: var(--openCard);
+  border-color: #9e949f3f;
 
-  border: 1px solid var(--card-foreground);
-  border-radius: 7%;
-
-  align-items: center;
-
-  font-size: 0.72em;
-  color: var(--input);
-  font-weight: 100;
+  background-color: #dbdbdb;
+  color: #838080;
 }
 
-.avai-card {
-  position: absolute;
-  width: 1%;
-  height: 2%;
-  background-color: var(--success);
+.dayoff-card {
+  border-color: #9c4b4f3f;
 
-  border: 1px solid var(--calendarbg);
-  border-radius: 100%;
-
-  margin-left: 1.2%;
+  background-color: #ffe2e2;
+  color: #9c4b4b;
 }
+
+/*
+.available-card {
+  border: 1px solid #076d4b;;
+
+  background-color: #45b18d;
+  color: #076d4b;
+}
+  */
