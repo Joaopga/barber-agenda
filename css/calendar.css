@@ -86,20 +86,20 @@
   border-radius: 9px;
 }
 
-.aftern-card {
-  border-color: #9a5a1f3f;
-
-  margin-top: 2%;
-
-  background-color: #ffe2c1;
-  color: #9a5b1f;
-}
-
 .morning-card {
   border-color: #3b5b8f3f;
 
-  background-color: #b0d1fc;
+  background-color: #DCEBFF;
   color: #3b5b8a;
+}
+
+.aftern-card {
+  border-color: #5b4b9f3f;
+
+  margin-top: 2%;
+
+  background-color: #E7E1FF;
+  color: #5B4B9A;
 }
 
 .ocup-card {
