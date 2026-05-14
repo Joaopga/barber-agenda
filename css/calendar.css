@@ -1,8 +1,10 @@
 /* Main Content */
 .main-c-content {
   max-width: 1100px;
-  margin: 0 auto;
+  margin: 0 auto auto auto;
   padding: 2rem 1.5rem;
+
+  transition: transform 0.4s ease;
 }
 
 /* Table Section */
@@ -42,6 +44,11 @@
   padding: 0.5rem 0 4.9rem 1rem;
   border: 2px solid var(--border);
   text-align: left;
+
+  position: relative;
+  overflow: hidden;
+
+  cursor: default;
 }
 
 .calendar-table th {
@@ -51,6 +58,14 @@
 
   letter-spacing: 0.05em;
   color: var(--foreground);
+
+  cursor: pointer;
+}
+
+.calendar-table th:hover {
+  .day-info {
+    display: flex;
+  }
 }
 
 .calendar-table tbody tr {
@@ -66,16 +81,17 @@
   background: var(--muted);
 }
 
-/* CARDS  */
+/* CARDS + PLUS BUTTON */
 
 .morning-card,
 .ocup-card,
 .aftern-card,
 .dayoff-card {
+  box-sizing: border-box;
   position: absolute;
-  margin: 0.3% 0;
+  margin: 3% 0;
 
-  padding: 0.1% 0.5% 0.1% 0.5%;
+  padding: 1% 5% 1% 5%;
   border: 1px solid;
 
   text-align: center;
@@ -89,17 +105,17 @@
 .morning-card {
   border-color: #3b5b8f3f;
 
-  background-color: #DCEBFF;
+  background-color: #dcebff;
   color: #3b5b8a;
 }
 
 .aftern-card {
   border-color: #5b4b9f3f;
 
-  margin-top: 2%;
+  margin-top: 20%;
 
-  background-color: #E7E1FF;
-  color: #5B4B9A;
+  background-color: #e7e1ff;
+  color: #5b4b9a;
 }
 
 .ocup-card {
@@ -116,11 +132,30 @@
   color: #9c4b4b;
 }
 
-/*
-.available-card {
-  border: 1px solid #076d4b;;
+.day-info {
+  display: none;
+  position: absolute;
 
-  background-color: #45b18d;
-  color: #076d4b;
+  top: 70%;
+  left: 83%;
+  padding-left: 0.47%;
+  padding-bottom: 1%;
+
+  width: 11%;
+  height: 20%;
+  border-radius: 50%;
+
+  background: var(--calendarbg);
+  color: var(--muted);
+
+  align-items: center;
+  justify-content: center;
+
+  line-height: 1;
 }
-  */
+
+/*   DAY AGENDA   */
+
+.day-agenda {
+  
+}
