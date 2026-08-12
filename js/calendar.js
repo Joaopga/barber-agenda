@@ -1,3 +1,4 @@
+const  header = document.querySelector('.header')
 const mainTable = document.querySelector(".main-c-content");
 const table = document.querySelector(".calendar-table");
 const ths = document.querySelectorAll("th");
@@ -21,7 +22,9 @@ table.addEventListener("click", (e) => {
 
 // CLOSE
 document.addEventListener("click", (e) => {
-  if (!table.contains(event.target) && modalStat === 1) {
+  if (!mainTable.contains(event.target) &&
+        !header.contains(event.target) &&
+          modalStat === 1) {
     mainTable.style.transform = "translateX(0%)";
     modalStat = 0;
 

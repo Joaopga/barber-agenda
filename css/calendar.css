@@ -13,7 +13,6 @@
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow);
   overflow: hidden;
-
   color: var(--muted);
 }
 
@@ -60,11 +59,13 @@
   color: var(--foreground);
 
   cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease
 }
 
 .calendar-table th:hover {
-  .day-info {
-    display: flex;
+  background-color: var(--secondary-hover);
+  span {
+    color: var(--primary-hover)
   }
 }
 
@@ -81,7 +82,7 @@
   background: var(--muted);
 }
 
-/* CARDS + PLUS BUTTON */
+/* CARDS + MORE INFO BUTTON */
 
 .morning-card,
 .ocup-card,
@@ -132,30 +133,18 @@
   color: #9c4b4b;
 }
 
-.day-info {
-  display: none;
-  position: absolute;
-
-  top: 70%;
-  left: 83%;
-  padding-left: 0.47%;
-  padding-bottom: 1%;
-
-  width: 11%;
-  height: 20%;
-  border-radius: 50%;
-
-  background: var(--calendarbg);
-  color: var(--muted);
-
-  align-items: center;
-  justify-content: center;
-
-  line-height: 1;
-}
-
 /*   DAY AGENDA   */
 
 .day-agenda {
-  
+  display: flex;
+  margin-left: auto;
+}
+
+.day-agenda-header {
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+
+  color: var(--muted);
 }
