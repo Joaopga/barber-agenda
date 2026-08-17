@@ -7,17 +7,27 @@ let modalStat;
 
 function openDayAgenda(date) {
     dayAgenda.classList.remove('hidden')
+
+    setTimeout(()=> {
+      dayAgenda.style.transform = "translateX(0%)"
+    }, 1)
+    console.log(date)
 }
 
 function closeDayAgenda() {
+  dayAgenda.style.transform = "translateX(100%)"
+  setTimeout(() => {
     dayAgenda.classList.add('hidden')
+}, 300)
+    
 }
 
 // OPEN & CLOSE SIDE MENU WITH DAY AGENDA
 table.addEventListener("click", (e) => {
-  mainTable.style.transform = "translateX(-17%)";
+  mainTable.style.transform = "translateX(-25%)";
   modalStat = 1;
-  openDayAgenda(e.target.querySelector("span").innerHTML);
+  const th = e.target.closest('th')
+  openDayAgenda(th.querySelector("span").innerHTML);
 });
 
 // CLOSE
