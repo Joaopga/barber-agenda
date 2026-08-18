@@ -1,3 +1,5 @@
+//C:/Users/jp_12/Desktop/Projetos/Sites/Crud_Port/js
+
 const  header = document.querySelector('.header')
 const mainTable = document.querySelector(".main-c-content");
 const table = document.querySelector(".calendar-table");
@@ -24,7 +26,7 @@ function closeDayAgenda() {
 
 // OPEN & CLOSE SIDE MENU WITH DAY AGENDA
 table.addEventListener("click", (e) => {
-  mainTable.style.transform = "translateX(-25%)";
+  mainTable.style.transform = "translateX(-27%)";
   modalStat = 1;
   const th = e.target.closest('th')
   openDayAgenda(th.querySelector("span").innerHTML);
