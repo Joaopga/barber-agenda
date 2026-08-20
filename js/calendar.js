@@ -1,4 +1,4 @@
-//C:/Users/jp_12/Desktop/Projetos/Sites/Crud_Port/js
+//      
 
 const header = document.querySelector(".header");
 const mainTable = document.querySelector(".main-c-content");
