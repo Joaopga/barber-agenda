@@ -15,12 +15,14 @@
   --secondary-hover: #cbd5e1;
   --background: #f1f5f9;
   --foreground: #334155;
+  --lgt-foreground: #c0c6ce;
   --card: #ffffff;
   --card-foreground: #334155;
   --muted: #f1f5f9;
   --muted-foreground: #64748b;
   --border: #e2e8f0;
   --input: #ffffff;
+  --lgt-destructive: #e46161;
   --destructive: #ef4444;
   --destructive-hover: #dc2626;
   --success: #10b981;
